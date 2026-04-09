@@ -66,7 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function initParticles() {
         particles = [];
-        const count = Math.min(80, Math.floor(window.innerWidth / 20));
+        // Use fewer particles on mobile to save battery/CPU
+        const isMobile = window.innerWidth < 768;
+        const count = isMobile
+            ? Math.min(30, Math.floor(window.innerWidth / 25))
+            : Math.min(80, Math.floor(window.innerWidth / 20));
         for (let i = 0; i < count; i++) {
             particles.push(new Particle());
         }
@@ -283,9 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // ── Hero Showcase 3D Tilt ──
+    // ── Hero Showcase 3D Tilt (desktop only) ──
     const showcase = document.getElementById('hero-showcase');
-    if (showcase) {
+    const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
+
+    if (showcase && !isTouchDevice()) {
         showcase.addEventListener('mousemove', (e) => {
             const rect = showcase.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -466,17 +472,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function createMicroConfetti(target) {
         const rect = target.getBoundingClientRect();
         const colors = ['#00b4d8', '#90e0ef', '#0077b6', '#ffffff'];
+        const scrollY = window.scrollY || window.pageYOffset;
 
         for (let i = 0; i < 12; i++) {
             const dot = document.createElement('div');
             dot.className = 'confetti-dot';
+            // Use fixed positioning with the viewport-relative coords from getBoundingClientRect
             dot.style.left = rect.left + rect.width / 2 + 'px';
             dot.style.top = rect.top + rect.height / 2 + 'px';
             dot.style.background = colors[Math.floor(Math.random() * colors.length)];
-            dot.style.setProperty('--tx', (Math.random() - 0.5) * 80 + 'px');
-            dot.style.setProperty('--ty', (Math.random() - 0.5) * 80 + 'px');
+            dot.style.setProperty('--tx', (Math.random() - 0.5) * 60 + 'px');
+            dot.style.setProperty('--ty', (Math.random() - 0.5) * 60 + 'px');
             document.body.appendChild(dot);
-            setTimeout(() => dot.remove(), 600);
+            setTimeout(() => dot.remove(), 650);
         }
     }
 
