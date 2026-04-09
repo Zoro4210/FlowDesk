@@ -1,8 +1,8 @@
-# FlowDesk Website 🌐
+# FlowDesk Website 
 
 The official landing page for **FlowDesk**, the minimalist habit tracker for Android. This website serves as a showcase, interactive demo, and delivery platform for the application's APK.
 
-## ✨ Features
+##  Features
 
 - **Interactive Experience:** A fully functional, web-based mock-up of the FlowDesk widget allows users to try the logging experience before downloading.
 - **Dynamic Graphics:**
@@ -13,7 +13,7 @@ The official landing page for **FlowDesk**, the minimalist habit tracker for And
 - **Direct Delivery:** Integrated APK download section for seamless user onboarding.
 - **Responsive Design:** Optimized for mobile, tablet, and desktop viewing.
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Core:** Vanilla HTML5, CSS3, and JavaScript (ES6+).
 - **Visualization:** HTML5 Canvas API for the particle background.
@@ -23,7 +23,7 @@ The official landing page for **FlowDesk**, the minimalist habit tracker for And
     - Custom JS-driven typing and counter engines.
 - **Assets:** Locally hosted APK and optimized JPEG/PNG assets.
 
-## 📂 Structure
+##  Structure
 
 ```text
 website/
@@ -33,7 +33,7 @@ website/
 └── style.css           # Modern design system (Glassmorphism, Dark mode)
 ```
 
-## 🚀 Deployment
+## Deployment
 
 The website is built using static files and can be hosted on any web server:
 
@@ -43,7 +43,7 @@ The website is built using static files and can be hosted on any web server:
 2. **Production:**
    - Simply upload the contents of the `website/` folder to GitHub Pages, Netlify, Vercel, or any S3-style bucket.
 
-## 🎨 Design System
+##  Design System
 
 - **Primary Color:** `#00b4d8` (Bright Cyan)
 - **Background:** `#050505` (Deep Black)
